@@ -1,0 +1,10 @@
+<h2>Search Movies</h2>
+
+<form action="{{ url_for('search') }}" method="POST">
+        <dl>
+            <dd><input placeholder="Enter type" Title="text" name="title"></dd>
+            <dt>Title</dt>
+        </dl>
+        <input type="submit" value="Search">
+</form>
+

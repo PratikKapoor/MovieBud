@@ -1,0 +1,27 @@
+<h1>Welcome to Home</h1>
+
+{% if message %}
+    <h2>{{ message }}</h2>
+{% endif %}
+
+{% for message in get_flashed_messages() %}
+    {{ message }}
+{% endfor %}
+
+<h2>Actions</h2>
+<form action="{{ url_for('mutualfriends') }}" method="GET">
+	<h3>Recommended friends based on number of mutual friends</h3>
+        <input type="submit" value="Click!">
+</form>
+
+<form action="{{ url_for('moviepref') }}" method="GET">
+	<h3>Recommended friends based on similiar taste in movies</h3>
+        <input type="submit" value="Click!">
+</form>
+
+<form action="{{ url_for('mutualfriends') }}" method="GET">
+	<h3>Recommended friends based on number of mutual friends</h3>
+        <input type="submit" value="Click!">
+</form>
+
+

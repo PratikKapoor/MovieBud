@@ -1,0 +1,26 @@
+{% block body %}
+
+<style>
+	th { text-align: left; }
+	td { text-align: left; }
+	td#tag {text-align: right; }
+</style>
+
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Mutual Friends</td>
+		<td>Add as Friend</td>
+	</tr>
+	
+	{% for row in result %}
+    	<tr>
+    		<td>{{ row[0] }}</td>
+    		<td id="tag">{{ row[1] }}</td>
+    		<td id="tag"><a href="{{ url_for('addfriend', friendtoadd=row[2]) }}">Add Friend</a></td>
+    	</tr>
+	{% endfor %}
+	
+</table>
+
+{% endblock %}

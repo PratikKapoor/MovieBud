@@ -1,0 +1,27 @@
+{% block body %}
+
+<style>
+	th { text-align: left; }
+	td { text-align: left; }
+</style>
+
+<table>
+	<tr>
+		<th>Movie</th>
+		<th>Recommended by</th>
+		<th>Comment</th>
+	</tr>
+	
+	{% for row in rec %}
+    	<tr>
+    		<td>{{ row[0] }}</td>
+    		<td>{{ row[1] }}</td>
+
+    		<td>{{ row[2] }}</td>
+
+    	</tr>
+	{% endfor %}
+	
+</table>
+
+{% endblock %}

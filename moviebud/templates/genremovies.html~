@@ -1,0 +1,22 @@
+{% block body %}
+
+<style>
+	th { text-align: left; }
+	td { text-align: left; }
+</style>
+
+<table>
+	<tr>
+		<th>Movie</th>
+	</tr>
+	
+	{% for row in rec %}
+    	<tr>
+    		<td>{{ row[0] }}</td>
+    	</tr>
+	{% endfor %}
+</table>
+
+<p>Because you rated movies from the genre {{ genre }} the highest</p>
+
+{% endblock %}
