@@ -33,10 +33,9 @@ def login():
         password = request.form['password']
 	
         if not User(username).verify_password(password):
-            flash('Invalid login.')
+            flash('Invalid username/password')
         else:
             session['login'] = username
-            flash('Logged in.')
             return redirect(url_for('home'))
 
     return render_template('login.html')
@@ -44,7 +43,9 @@ def login():
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
-    	return render_template('home.html')
+    	you = session.get('login')
+    	you = User(you).get_name()
+    	return render_template('home.html', you=you)
     	 
 @app.route('/mutualfriends', methods=['GET', 'POST'])
 def mutualfriends():
@@ -98,7 +99,11 @@ def search():
 		title = request.form['title']
 		response = User(you).moviedetails(title)
 		
-		return render_template('moviepage.html', rec=response, title=title)
+		if response:
+			return render_template('moviepage.html', rec=response, title=title)
+		else:
+			flash("Invalid Movie Title")
+			return render_template('searchmovie.html')
 	
 	if request.method == 'GET':
 		return render_template('searchmovie.html')
@@ -108,7 +113,6 @@ def ratemovie(title):
 	if request.method == 'POST':
 		rating = request.form['rating']
 		rating = int(rating)
-		print(rating)
 		if rating<1 or rating>5:
 			flash("Rating must be between 1-5")
 			you = session.get('login')

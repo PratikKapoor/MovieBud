@@ -1,11 +1,16 @@
 <h2>Login</h2>
-	<form action="{{ url_for('login') }}" method="post">
+	<form action="{{ url_for('login') }}" method="POST">
         <dl>
             <dt>Username:</dt>
             <dd><input type="text" name="username"></dd>
             <dt>Password:</dt>
             <dd><input type="password" name="password"></dd>
         </dl>
+        
+        {% for message in get_flashed_messages() %}
+    	{{ message }}
+	{% endfor %}
+        
         <input type="submit" value="Login">
 	</form>
 

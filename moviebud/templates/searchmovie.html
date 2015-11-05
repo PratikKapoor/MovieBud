@@ -4,6 +4,9 @@
         <dl>
             <dd><input placeholder="Enter Title" Title="text" name="title"></dd>
         </dl>
+        {% for message in get_flashed_messages() %}
+    	{{ message }}
+	{% endfor %}
         <input type="submit" value="Search">
 </form>
 
