@@ -1,7 +1,7 @@
 # MovieBud
 Friend Recommendation based on similiar movie interests powered by Flask and Neo4j
 
-Set dbms.security.auth_enabled=false in conf/neo4j-server.properties
+Set ('dbms.security.auth_enabled=false) in ('conf/neo4j-server.properties)
 
 Then : 
 
