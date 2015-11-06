@@ -1,28 +1,41 @@
+<!DOCTYPE html>
 <head>
-	<h2>Register to start using MovieBud</h2>
-	<link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<title>MovieBud</title>
+	<link rel="stylesheet" href="../static/css/style.css">
 </head>
-
-
-
+	
 <body>
-	<form action="{{ url_for('register') }}" method="POST">
-
-	<fieldset>
-		<legend>Register</legend>
-		<label>Label name</label>
-			<input type="text" placeholder="Enter Username" name="username">
-			<input type="password" placeholder="Enter Password" name="password">
-			<input type="password" placeholder="Re-Enter Password" name="password2">
-		</label>
-
-		{% for message in get_flashed_messages() %}
-    	{{ message }}
-		{% endfor %}
+        <div class="wrapper">
+		<div class="container">
+			<h1>Login</h1>
+		
+			<form class="form" action="{{ url_for('register') }}" method="POST">
+				<input type="text" placeholder="Username" name="username">
+				<input type="password" placeholder="Password" name="password">
+				<input type="password" placeholder="Re-Enter Password" name="password2">
+				<button type="submit" id="login-button">Sign Up</button>
+				
+				{% for message in get_flashed_messages() %}
+        			<p>{{ message }}</p>
+				{% endfor %}
+			</form>
+		</div>
 	
-		<button type="submit" class="btn">Submit</button>
-	</fieldset>
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
 	
-	</form>
+	</div>
 </body>
+
+
+

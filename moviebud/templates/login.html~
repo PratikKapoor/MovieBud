@@ -1,11 +1,42 @@
-<h2>Login</h2>
-	<form action="{{ url_for('login') }}" method="post">
-        <dl>
-            <dt>Username:</dt>
-            <dd><input type="text" name="username"></dd>
-            <dt>Password:</dt>
-            <dd><input type="password" name="password"></dd>
-        </dl>
-        <input type="submit" value="Login">
-	</form>
+<!DOCTYPE html>
+<head>
+	<title>MovieBud</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
+	
+<body>
+        <div class="wrapper">
+		<div class="container">
+			<h1>Login</h1>
+		
+			<form class="form" action="{{ url_for('login') }}" method="POST">
+				<input type="text" placeholder="Username" name="username">
+				<input type="password" placeholder="Password" name="password">
+				<button type="submit" id="login-button">Login</button>
+				
+				{% for message in get_flashed_messages() %}
+        			<p>{{ message }}</p>
+				{% endfor %}
+			</form>
+		</div>
+	
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+        
+        
+	
+	</div>
+</body>
+
+
 
