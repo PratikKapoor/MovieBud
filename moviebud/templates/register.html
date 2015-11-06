@@ -1,16 +1,28 @@
-<h2>Register</h2>
+<head>
+	<h2>Register to start using MovieBud</h2>
+	<link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
 
-{% for message in get_flashed_messages() %}
-    {{ message }}
-{% endfor %
 
-	<form action="{{ url_for('register') }}" method="post">
-		<dl>
-		    <dt>Username:</dt>
-		    <dd><input type="text" name="username"></dd>
-		    <dt>Password:</dt>
-		    <dd><input type="password" name="password"></dd>
-		</dl>
-        	<input type="submit" value="Register">
+
+<body>
+	<form action="{{ url_for('register') }}" method="POST">
+
+	<fieldset>
+		<legend>Register</legend>
+		<label>Label name</label>
+			<input type="text" placeholder="Enter Username" name="username">
+			<input type="password" placeholder="Enter Password" name="password">
+			<input type="password" placeholder="Re-Enter Password" name="password2">
+		</label>
+
+		{% for message in get_flashed_messages() %}
+    	{{ message }}
+		{% endfor %}
+	
+		<button type="submit" class="btn">Submit</button>
+	</fieldset>
+	
 	</form>
-
+</body>

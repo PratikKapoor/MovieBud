@@ -1,7 +1,9 @@
 from models import User
 from flask import Flask, request, session, redirect, url_for, render_template, flash
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+app._static_folder = "/home/pratik/Downloads/MovieBud/moviebud/static"
 
 @app.route('/')
 def index():
@@ -12,11 +14,14 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        repassword = request.form['password2']
 
         if len(username) < 1:
             flash('Your username must be at least one character.')
         elif len(password) < 5:
             flash('Your password must be at least 5 characters.')
+        elif (password != repassword):
+        	flash('Passwords do not match')
         elif not User(username).register(password):
             flash('A user with that username already exists.')
         else:

@@ -1,9 +1,24 @@
-<h2>MovieBud</h2>
-	<form action="{{ url_for('login') }}" method="get">
-        <input type="submit" value="Login">
-	</form>
+
+
+<head>
+	<title>MovieBud - Connect to people based on your Movie Preferences!</title>
+	<link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+	{% block content %}
+	<div class="container">
+		<script src="http://code.jquery.com/jquery.js"></script>
+	    	<script src="../static/js/bootstrap.min.js"></script>
+	    	
+		<form action="{{ url_for('login') }}" method="get">
+			<button type="submit" class="btn">Login</button>
+		</form>
 	
-	<form action="{{ url_for('register') }}" method="get">
-        <input type="submit" value="Register">
-	</form>
+		<form action="{{ url_for('register') }}" method="get">
+			<button type="submit" class="btn">Sign Up</button>
+		</form>
+	</div>
+	{% endblock %}
+</body>
 
