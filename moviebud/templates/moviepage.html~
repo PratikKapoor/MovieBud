@@ -1,46 +1,82 @@
-{% block body %}
-
 <style>
-	th { text-align: left; }
-	td { text-align: left; }
-	td#tag {text-align: right; }
+	table {
+		color: #333; /* Lighten up font color */
+		font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+		width: 900px;
+		border-collapse:
+		collapse; border-spacing: 0;
+	}
+
+	td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+	th {
+		background: #F3F3F3; /* Light grey background */
+		font-weight: bold; /* Make sure they're bold */
+	}
+
+	td {
+		background: #FAFAFA; /* Lighter grey background */
+		text-align: center; /* Center our text */
+	}
+	
+	
 </style>
 
-{% if rec %}
+<head>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
 
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Genre</th>
-		<th>Studio</th>
-		<th>Trailer</th>
-		<th>Tagline</th>
-		<th>Description</th>
-	</tr>
+<body>
+	<div class="wrapper">
+		<h1 align="center">Movies From Your Favourite Genre</h1>
+		<div class="container">
+			
+			<table>
+				<tr>
+					<th>Title</th>
+					<th>Genre</th>
+					<th>Studio</th>
+					<th>Trailer</th>
+					<th>Tagline</th>
+					<th>Description</th>
+				</tr>
 	
-	{% for row in rec %}
-    	<tr>
-    		<td>{{ row[4] }}</td>
-    		<td>{{ row[1] }}</td>
-    		<td>{{ row[0] }}</td>
-		<td><a href=' {{ row[2] }} '>YouTube</a></td>
-    		<td>{{ row[6] }}</td>
-    		<td>{{ row[5] }}</td>
-    	</tr>
-	{% endfor %}
-	
-</table>
-
-<form action="{{ url_for('ratemovie', title=title) }}" method="POST">
-	<h3>Rate this movie : </h3>
-	<input type="text" name="rating" placeholder="Enter Rating">
-        <input type="submit" value="Submit">
-</form>
-
-{% for message in get_flashed_messages() %}
-    {{ message }}
-{% endfor %}
-
-{% endif %}
-
-{% endblock %}
+				{% for row in rec %}
+			    	<tr>
+			    		<td>{{ row[4] }}</td>
+			    		<td>{{ row[1] }}</td>
+			    		<td>{{ row[0] }}</td>
+					<td><a href=' {{ row[2] }} '>YouTube</a></td>
+			    		<td>{{ row[6] }}</td>
+			    		<td>{{ row[5] }}</td>
+			    	</tr>
+				{% endfor %}
+				
+			</table>
+			
+			<form action="{{ url_for('ratemovie', title=title) }}" method="POST">
+				<h3>Rate this movie : </h3>
+				<input type="text" name="rating" placeholder="Enter Rating">
+				<button type="submit" id="login-button">Done</button>
+			</form>
+								
+			{% for message in get_flashed_messages() %}
+			<h2>{{ message }}</h2>
+			{% endfor %}
+		</div>
+		
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+	</div>
+</body>

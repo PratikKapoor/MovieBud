@@ -1,4 +1,8 @@
-<h1>Discover new Movies</h1>
+<!DOCTYPE html>
+<head>
+	<title>MovieBud - Discover Movies</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
 
 {% if message %}
     <h2>{{ message }}</h2>
@@ -8,18 +12,43 @@
     {{ message }}
 {% endfor %}
 
-<h2>Actions</h2>
-<form action="{{ url_for('friendsmovies') }}" method="GET">
-	<h3>Recommended movies based on what your friends like</h3>
-        <input type="submit" value="Click!">
-</form>
+<body>
+	<div class="wrapper">
+		{% if message %}
+    		<h2>{{ message }}</h2>
+		{% endif %}
 
-<form action="{{ url_for('genremovies') }}" method="GET">
-	<h3>Recommended movies from your favourite genre</h3>
-        <input type="submit" value="Click!">
-</form>
+		{% for message in get_flashed_messages() %}
+   		{{ message }}
+		{% endfor %}
+		<div class="container">
+			<h3>Suggested Movies</h3>
+			<form action="{{ url_for('friendsmovies') }}" method="GET">
+				<button type="submit" id="login-button">Friend Recommendations</button>
+			</form>
 
-<form action="{{ url_for('search') }}" method="GET">
-	<h3>Search Movies by Title</h3>
-        <input type="submit" value="Click!">
-</form>
+			<form action="{{ url_for('genremovies') }}" method="GET">
+				<button type="submit" id="login-button">From your Favourite Genre</button>
+			</form>
+			
+			<form action="{{ url_for('search') }}" method="GET">
+				<button type="submit" id="login-button">Search</button>
+			</form>
+		</div>
+		
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+
+

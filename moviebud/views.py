@@ -107,7 +107,7 @@ def search():
 		if response:
 			return render_template('moviepage.html', rec=response, title=title)
 		else:
-			flash("Invalid Movie Title")
+			flash("Movie Not Present in DataBase")
 			return render_template('searchmovie.html')
 	
 	if request.method == 'GET':

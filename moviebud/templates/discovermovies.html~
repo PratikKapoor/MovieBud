@@ -20,6 +20,60 @@
 </form>
 
 <form action="{{ url_for('search') }}" method="GET">
-	<h3>Search Movies</h3>
+	<h3>Search Movies by Title</h3>
         <input type="submit" value="Click!">
 </form>
+
+<!DOCTYPE html>
+<head>
+	<title>MovieBud - Home</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+{% if you %}
+    <h2>Welcome, {{ you[0][0] }}</h2>
+{% endif %}
+
+{% for message in get_flashed_messages() %}
+    {{ message }}
+{% endfor %}
+
+<body>
+	<div class="wrapper">
+	
+		{% if you %}
+	    	<h2><p>Welcome, {{ you[0][0] }}</p></h2>
+		{% endif %}
+		
+		<div class="container">
+			<h3>Friend Recommendations</h3>
+			<form action="{{ url_for('friendsmovies') }}" method="GET">
+				<button type="submit" id="login-button">Mutual Friends</button>
+			</form>
+
+			<form action="{{ url_for('genremovies') }}" method="GET">
+				<button type="submit" id="login-button">Similiar Movie Choices</button>
+			</form>
+			
+			<h3>Discover New Movies</h3>
+			<form action="{{ url_for('search') }}" method="GET">
+				<button type="submit" id="login-button">Explore</button>
+			</form>
+		</div>
+		
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+
+
