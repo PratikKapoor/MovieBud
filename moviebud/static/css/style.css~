@@ -230,34 +230,48 @@ form button:hover {
   }
 }
 
-table {
-color: #333;
-font-family: Helvetica, Arial, sans-serif;
-width: 640px;
-border-collapse:
-collapse; border-spacing: 0;
+.flatTable{  
+  width:100%;
+  min-width:500px;
+  border-collapse:collapse;  
+  font-weight:bold;
+  color:@darkGrey;
+  
+  tr{
+    height:50px;
+    background:@darkBg;
+    border-bottom:rgba(0,0,0,.05) 1px solid;
+  }
+  
+  td{    
+    box-sizing:border-box;
+    padding-left:30px;
+    
+  }
+
+.titleTr{
+  height:70px;  
+  color:#f6f3f7; 
+  background:@sR;  
+  border:0px solid;
 }
 
-td, th {
-border: 1px solid transparent; /* No more visible border */
-height: 30px;
-transition: all 0.3s;  /* Simple transition for hover effect */
+.plusTd{
+    background:url(http://i.imgur.com/3hSkhay.png) center center no-repeat, rgba(0,0,0,.1);
 }
 
-th {
-background: #DFDFDF;  /* Darken header a bit */
-font-weight: bold;
+.controlTd{  
+  position:relative;
+  width:80px;
+  background:url(http://i.imgur.com/9Q5f6cv.png) center center no-repeat;
+  cursor:pointer;
 }
 
-td {
-background: #FAFAFA;
-text-align: center;
+.headingTr{
+    height:30px;
+    background:@sRLight;
+    color:@offWhite; 
+    font-size:8pt;
+    border:0px solid;
+}  
 }
-
-/* Cells in even rows (2,4,6...) are one color */
-tr:nth-child(even) td { background: #F1F1F1; }  
-
-/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
-tr:nth-child(odd) td { background: #FEFEFE; } 
-
-tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */

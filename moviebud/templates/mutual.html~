@@ -1,26 +1,68 @@
 {% block body %}
 
 <style>
-	th { text-align: left; }
-	td { text-align: left; }
-	td#tag {text-align: right; }
+table {
+color: #333; /* Lighten up font color */
+font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+width: 640px;
+border-collapse:
+collapse; border-spacing: 0;
+}
+
+td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+th {
+background: #F3F3F3; /* Light grey background */
+font-weight: bold; /* Make sure they're bold */
+}
+
+td {
+background: #FAFAFA; /* Lighter grey background */
+text-align: center; /* Center our text */
+}
 </style>
 
-<table>
-	<tr>
-		<td>Name</td>
-		<td>Mutual Friends</td>
-		<td>Add as Friend</td>
-	</tr>
+<head>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+	<h1>Friend Suggestions by Mutual Connections</h1>
+		<div class="container">
+			
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Mutual Friends</th>
+					<th>Add as Friend</th>
+				</tr>
 	
-	{% for row in result %}
-    	<tr>
-    		<td>{{ row[0] }}</td>
-    		<td id="tag">{{ row[1] }}</td>
-    		<td id="tag"><a href="{{ url_for('addfriend', friendtoadd=row[2]) }}">Add Friend</a></td>
-    	</tr>
-	{% endfor %}
+				{% for row in result %}
+			    	<tr>
+			    		<td>{{ row[0] }}</td>
+			    		<td id="tag">{{ row[1] }}</td>
+			    		<td id="tag"><a href="{{ url_for('addfriend', friendtoadd=row[2]) }}">Add Friend</a></td>
+			    	</tr>
+				{% endfor %}
 	
-</table>
+			</table>
+		</div>
+		
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+	</div>
+</body>
 
 {% endblock %}

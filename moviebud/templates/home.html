@@ -1,4 +1,8 @@
-<h1>Welcome to Home</h1>
+<!DOCTYPE html>
+<head>
+	<title>MovieBud - Home</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
 
 {% if you %}
     <h2>Welcome, {{ you[0][0] }}</h2>
@@ -8,20 +12,42 @@
     {{ message }}
 {% endfor %}
 
-<h2>Actions</h2>
-<form action="{{ url_for('mutualfriends') }}" method="GET">
-	<h3>Recommended friends based on number of mutual friends</h3>
-        <input type="submit" value="Click!">
-</form>
+<body>
+	<div class="wrapper">
+	
+		{% if you %}
+	    	<h2><p>Welcome, {{ you[0][0] }}</p></h2>
+		{% endif %}
+		
+		<div class="container">
+			<h3>Friend Recommendations</h3>
+			<form action="{{ url_for('mutualfriends') }}" method="GET">
+				<button type="submit" id="login-button">Mutual Friends</button>
+			</form>
 
-<form action="{{ url_for('moviepref') }}" method="GET">
-	<h3>Recommended friends based on similiar taste in movies</h3>
-        <input type="submit" value="Click!">
-</form>
-
-<form action="{{ url_for('discover') }}" method="GET">
-	<h3>Discover new movies</h3>
-        <input type="submit" value="Click!">
-</form>
+			<form action="{{ url_for('moviepref') }}" method="GET">
+				<button type="submit" id="login-button">Similiar Movie Choices</button>
+			</form>
+			
+			<h3>Discover New Movies</h3>
+			<form action="{{ url_for('discover') }}" method="GET">
+				<button type="submit" id="login-button">Explore</button>
+			</form>
+		</div>
+		
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
 
 

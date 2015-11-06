@@ -17,6 +17,7 @@
 	{% for row in result %}
     	<tr>
     		<td>{{ row[0][0] }}</td>
+    		<td id="numcol">{{ row[1][0] }}</td>
     		<!--<td><a href="{{ url_for('addfriend'), row[0]) }}">Add Friend</a></td> -->
     	</tr>
 	{% endfor %}
